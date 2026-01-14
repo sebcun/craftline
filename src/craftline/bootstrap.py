@@ -30,9 +30,9 @@ def bootstrap() -> bool:
     
     config = load_config()
     
-    if not config.get("first_run_complete"):
-        logger.info("First run detected, intializing defaults...")
-        config["first_run_complete"] = True
+    if not config.app.first_run_complete:
+        logger.info("First run detected, initializing defaults...")
+        config.app.first_run_complete = True
         
         if not save_config(config):
             logger.error("Bootstrap failed: could not save config")
